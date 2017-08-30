@@ -1,0 +1,13 @@
+<ng2-smart-table [settings]="settings" [source]="printers" (userRowSelect)="chRowSelected($event)" *ngIf="loading==null"></ng2-smart-table>
+<div *ngIf="loading!=null">{{loading}}</div>
+<hr/>
+<div *ngIf="selectedPrinter!=null">
+    <div>Статус принтера:
+        <ps [rowData]="selectedPrinter" [viewOnly]="false" (addToDb)="onAddToDb($event)"></ps>
+    </div>
+    <div>Информация по серийному номеру {{selectedPrinter.printer_sn}}</div>
+    <scpl [serialNumber]="selectedPrinter.printer_sn"></scpl>
+</div>
+<div *ngIf="selectedPrinter==null">
+    Выберите принтер, что бы получить информацию
+</div>

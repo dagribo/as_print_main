@@ -1,0 +1,41 @@
+<div *ngIf="printers==null || printers.length==0">
+    Информация по принтеру '{{sn}}' не найдена
+</div>
+
+<div *ngIf="printers!=null && printers.length>0">
+    <div class="row">
+        <h4 class="col-sm-12">Информация по принтеру '{{sn}}'</h4>
+    </div>
+
+    <div class="row item" *ngFor="let prin of printers" style="border-style: solid;
+    border-radius: 8px;">
+        <div class="row">
+            <div class="col-sm-3">IP-адрес</div>
+            <div class="col-sm-3">{{prin.ipAddress}}</div>
+            <div class="col-sm-3">Имя ПК</div>
+            <div class="col-sm-3">{{prin.host_name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Пользователь</div>
+            <div class="col-sm-3">{{prin.login_name}}</div>
+            <div class="col-sm-3">Имя принтера</div>
+            <div class="col-sm-3">{{prin.printer_name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Серийный номер</div>
+            <div class="col-sm-3">{{prin.printer_sn}}</div>
+            <div class="col-sm-3">Драйвер</div>
+            <div class="col-sm-3">{{prin.printer_drivername}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">Документов распечатано</div>
+            <div class="col-sm-3">{{prin.jobs_count}}</div>
+            <div class="col-sm-3">Страниц распечатано</div>
+            <div class="col-sm-3">{{prin.jobs_pages}}</div>
+        </div>
+
+
+    </div>
+   
+</div>

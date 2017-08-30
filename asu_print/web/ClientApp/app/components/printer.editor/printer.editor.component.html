@@ -1,0 +1,214 @@
+<div *ngIf="source!=null">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Данные о принтере из БД ClickHouse</h2>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="ipAddress">IP-адрес ПК:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ipAddress" [value]="source.ipAddress" readonly="readonly" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="host_name">Имя ПК:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="host_name" [value]="source.host_name" readonly="readonly" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="login_name">Имя пользователя:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="login_name" [value]="source.login_name" readonly="readonly" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="printer_drivername">Драйвер принтера:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="printer_drivername" [value]="source.printer_drivername" readonly="readonly" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="printer_ip">IP-адрес принтера:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="printer_ip" [value]="source.printer_ip" readonly="readonly" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="printer_name">Имя принтера:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="printer_name" [value]="source.printer_name" readonly="readonly" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="printer_sn">Серийный номер принтера:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="printer_sn" [value]="source.printer_sn" readonly="readonly" />
+                    </div>
+                </div>
+
+
+
+
+            </form>
+
+
+
+
+        </div>
+        <div class="col-lg-6" *ngIf="scSelected!=null">
+            <h2>Данные из БД СК</h2>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="ivc">ИВЦ:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ivc" [value]="scSelected.ivc" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="shk">Штрих-код:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="shk" [value]="scSelected.shk" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="rivc">РИВЦ:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="rivc" [value]="scSelected.rivc" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="seriaL_NUM">Серийный номер:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="seriaL_NUM" [value]="scSelected.seriaL_NUM" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="manufacterer">Производитель:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="manufacterer" [value]="scSelected.manufacterer" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="workplace">Рабочее место:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="workplace" [value]="scSelected.shworkplacek" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="title">Модель:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="title" [value]="scSelected.title" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="city">Город:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="city" [value]="scSelected.city" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="phone">Телефон:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="phone" [value]="scSelected.phone" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="street">Улица:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="street" [value]="scSelected.street" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="owner">Владелец:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="owner" [value]="scSelected.owner" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label class="control-label col-sm-4" for="number">№ дома:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="number" [value]="scSelected.number" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button (click)="changeSK($event)" class="btn">Выбрать другой принтер из БД СК</button>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Данные АСУ Печать</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label class="control-label col-sm-4" for="scSearch">Производитель принтера:</label>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="producer">                            
+                            <option *ngFor="let prod of producers" value="{{prod.id}}">{{prod.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label class="control-label col-sm-4" for="scSearch">Модель принтера:</label>
+                    <div class="col-sm-8">
+                        <select [(ngModel)]="pmodel">                            
+                                <option *ngFor="let pm of pmodels" value="{{pm.id}}">{{pm.name}}</option>
+                            </select>
+                    </div>
+                </div>                
+                <div class="form-group col-sm-4">
+                        <label class="control-label col-sm-4" for="scSearch">Поразделение:</label>
+                        <div class="col-sm-8">
+                                <input type="text" class="form-control" id="number" [value]="firm.name" readonly="readonly" />
+                        </div>
+                    </div>                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default" *ngIf="scSelected==null">
+        <div class="panel-heading">Поиск в БД СК</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="scSearch">Серийный номер или ШК:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="scSearch" [value]="scSearch" (input)="scSearch = $event.target.value;firstSearch=false;"
+                    />
+                </div>
+            </div>
+            <scpl [search]="scSearch" [autoSelectSingle]="firstSearch" (printerSelected)="printerSelected($event)"></scpl>
+        </div>
+    </div>
+</div>
+
+<button (click)="savePrinter($event)" class="btn btn-default">Сохранить</button>
+<button (click)="cancel($event)" class="btn btn-default">Отмена</button>

@@ -1,0 +1,59 @@
+<div *ngIf="printer==null">
+    Информация по принтеру со штрих-кодом '{{_shk}}' не найдена
+</div>
+
+<div *ngIf="printer!=null" >
+    <div class="row">
+            <h4 class="col-sm-12">Информация по принтеру со штрих-кодом '{{_shk}}' из БД СК</h4>
+    </div>
+    <div class="item">
+    <div class="row">
+        <div class="col-sm-6">ИВЦ:</div>
+        <div class="col-sm-6">{{printer.ivc}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">РИВЦ:</div>
+        <div class="col-sm-6">{{printer.rivc}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Производитель:</div>
+        <div class="col-sm-6">{{printer.manufacterer}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Модель:</div>
+        <div class="col-sm-6">{{printer.model}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Телефон:</div>
+        <div class="col-sm-6">{{printer.phone}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Владелец:</div>
+        <div class="col-sm-6">{{printer.owner}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Штрих-код:</div>
+        <div class="col-sm-6">{{printer.shk}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Серийный номер принтера:</div>
+        <div class="col-sm-6">{{printer.serial_num}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Рабочее место:</div>
+        <div class="col-sm-6">{{printer.workplace}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Город:</div>
+        <div class="col-sm-6">{{printer.city}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">Улица:</div>
+        <div class="col-sm-6">{{printer.street}}</div>
+    </div>
+    <div class="row">
+            <div class="col-sm-6">№ дома:</div>
+            <div class="col-sm-6">{{printer.number}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container-fluid ui-g">
+    <div class="ui-g-6 ">
+        <p-splitButton styleClass="ui-button-secondary" label="{{subHeader}}" [model]="items" (onClick)='dropCurrentOption()'></p-splitButton>
+        <p>{{formatDate(trueDate1)}} {{trueDate2? '- ' + formatDate(trueDate2): ""}} </p>
+    </div>
+</div>
+
+<p-dialog header="{{header}}" [(visible)]="display"  [responsive]="true"  [modal]="true" [contentStyle]="{'overflow':'visible'}"
+[style]="{'overflow':'visible'}" [closable]=false>
+    <div [ngSwitch]="condition">
+        <ng-template [ngSwitchCase]="1">
+            C {{formatDate(trueDate1)}} по {{formatDate(trueDate2)}}          
+        </ng-template>
+        <ng-template [ngSwitchCase]="2">
+            <div class="ui-grid-row">
+                <div class="ui-g-2">
+                    <p *ngIf='header!="Сутки"'>С</p>
+                    <p *ngIf='header=="Сутки"'>Дата:</p>
+                </div>
+                <div class="ui-g-10">
+                    <p-calendar dateFormat="dd.mm.yy" [maxDate]=today [monthNavigator]=true [(ngModel)]="date1" [locale]="ru" readonlyInput="readonlyInput"></p-calendar>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-g-2">
+                    <p *ngIf='header!="Сутки"'>До</p>
+                </div>
+                <div class="ui-g-10">
+                    <p-calendar *ngIf='header!="Сутки"'dateFormat="dd.mm.yy"  [monthNavigator]=true [(ngModel)]="date2" [locale]="ru" [minDate]=date1 [maxDate]=today readonlyInput="readonlyInput"></p-calendar>
+                </div>
+            </div>      
+        </ng-template>
+        <ng-template [ngSwitchCase]="3">
+            <div *ngIf='header=="За месяц"' class="ui-grid-row">
+                <p-dropdown [options]="months" [(ngModel)]="selectedMonth" (onChange)=choosedYearOrMonth()  [style]="{'width':'200px'}" placeholder="Выберите месяц"></p-dropdown>
+            </div>
+            <div class="ui-grid-row" *ngIf='header!="За месяц"'>
+                <p-dropdown [options]="quarters" [(ngModel)]="selectedQuarter" (onChange)=choosedYearOrQuarter()  [style]="{'width':'200px'}" placeholder="Выберите квартал"></p-dropdown>
+            </div>
+            <div class="ui-grid-row">
+                <p-dropdown [options]="years" [(ngModel)]="selectedYear" (onChange)='header==="За месяц"?choosedYearOrMonth():choosedYearOrQuarter()' [style]="{'width':'200px'}" placeholder="Выберите год"></p-dropdown>
+            </div>
+    </ng-template>
+    </div>
+    <p-footer>
+        <button type="button" pButton icon="fa-check" [disabled]="(!(date2 > date1) || !date2) && header=='За период' || (date1 > today || date2 > today)"  (click)="display=false; copyDatesBack(); clearDropDown(true); ondateChanged()" label="Отправить"></button>
+        <button type="button" pButton icon="fa-close" (click)="display=false; clearDropDown(false)" label="Закрыть"></button>
+    </p-footer>
+</p-dialog>
+
+<div class=exel_but>
+    <button type="button" (click)="excelexport.save()">Экспортировать в EXCEL</button>
+</div>
+<kendo-excelexport [data]=this.printers fileName="Report.xlsx" #excelexport>
+       <kendo-excelexport-column field="job_status" title="Какой-то статус" [width]="150" 
+       [cellOptions]="cellOpt"
+       [headerCellOptions]="{ textAlign: 'center' }">
+       </kendo-excelexport-column>
+       <kendo-excelexport-column field="job_pages" title="Количество страниц" [width]="150" 
+       [cellOptions]="cellOpt" 
+       [headerCellOptions]="{ textAlign: 'center' }">
+       </kendo-excelexport-column>
+       <kendo-excelexport-column field="job_size" title="Размер файла" [width]="150" 
+       [cellOptions]="cellOpt" 
+       [headerCellOptions]="{ textAlign: 'center' }">
+       </kendo-excelexport-column>
+       <kendo-excelexport-column field="print_job_owner" title="Имя пользователя" [width]="350" 
+       [cellOptions]="cellOpt" 
+       [headerCellOptions]="{ textAlign: 'center' }">
+       </kendo-excelexport-column>
+       <kendo-excelexport-column field="document_name" title="Имя документа" [width]="450" 
+       [cellOptions]="cellOpt" 
+       [headerCellOptions]="{ textAlign: 'center' }">
+       </kendo-excelexport-column>
+</kendo-excelexport>

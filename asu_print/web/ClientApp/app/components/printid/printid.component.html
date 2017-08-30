@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class='row'>
+        <div class='col-sm-4' style="height:90vh;overflow-y: auto;">
+                <ftree (firmSelected)="firmSelected($event)" (peopleSelected)="peopleSelected($event)" [showPeople]="true"></ftree>
+        </div>
+        <div class='col-sm-8' *ngIf="pselected!=null || selected!=null">        
+            <span *ngIf="pselected!=null" >
+                Выбран пользователь: {{pselected.fullName}}            
+            </span>
+            <span *ngIf="selected!=null">
+                Выбрано предприятие: {{selected.name}}
+            </span>
+            
+            <plist [people]="pselected" [firm]="selected" (addToDb)="onAddToDb($event)" *ngIf="editMode==false"></plist>
+            <pe *ngIf="editMode==true" (editEnded)='editEnded($event)'    
+            [sourcePrinter]="printerToAdd" [firm]="selected"
+            ></pe>
+        </div>
+    </div>
+</div>
+

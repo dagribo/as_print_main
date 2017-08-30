@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\data\data.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
+    <PackageReference Include="ClickHouse.Ado" Version="1.1.1" />
+  </ItemGroup>
+  <PropertyGroup>
+	  <TargetFramework>netcoreapp1.1</TargetFramework>
+	  <RuntimeFrameworkVersion>1.1.0</RuntimeFrameworkVersion>
+
+    <RuntimeIdentifiers>ubuntu.16.10-x64;centos.7-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup>
+  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.1"></PackageReference>
+  </ItemGroup>
+</Project>

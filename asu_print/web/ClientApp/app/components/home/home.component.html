@@ -1,0 +1,7 @@
+<!--plist [firm]=firm></plist-->
+
+<!--pe [sourcePrinter]="printer" [firm]="firm"></pe-->
+<!--scpfi [shk]='"ШК-0000528012"'></scpfi-->
+
+<report  [(trueDate1)]="date1" [(trueDate2)]='date2' (dateChanged)=parse($event)></report>
+{{date1 | date}} - {{date2| date}}

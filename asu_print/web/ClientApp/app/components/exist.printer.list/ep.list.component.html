@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class='row'>
+        <div class='col-sm-4' style="height:90vh;overflow-y: auto;">
+            <ftree (firmSelected)="firmSelected($event)" (peopleSelected)="peopleSelected($event)" [showPeople]="false"></ftree>
+        </div>
+        <div class='col-sm-8' *ngIf="pselected!=null || selected!=null">
+            <span *ngIf="pselected!=null">
+                Выбран пользователь: {{pselected.fullName}}            
+            </span>
+            <span *ngIf="selected!=null">
+                Выбрано предприятие: {{selected.name}}
+            </span>
+            <ng2-smart-table [settings]="settings" [source]="printers" (userRowSelect)="rowSelected($event)" *ngIf="loading==null"></ng2-smart-table>
+            <div *ngIf="printer!=null" class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <scpfi [shk]='printer.barcode'></scpfi>
+                    </div>                    
+                    <div class="col-md-6">
+                            <chfi [serial]='printer.serialNumber'></chfi>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

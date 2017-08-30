@@ -1,0 +1,33 @@
+export class SCPrinter{
+    constructor(
+public  ivc:string,
+public  rivc:string,
+public  person_name:string,
+public  device:string,
+public  manufacterer:string,
+public  model:string,
+public  floor:string,
+public  room:string,
+public  phone:string,
+public  owner:string,
+public  dept:string,
+public  rzd_enterprise:string,
+public  shk:string,
+public  serial_num:string,
+public  inventory_num:string,
+public  status:string,
+public  accepted:any,
+public  remove:any,
+public  repair_need:number,
+public  prophylaxis_need:number,
+public  ais_tp_num:string,
+public  entry_date:any,
+public  last_change_date:any,
+public  print_counter:number,
+public  workplace:string,
+public  responsibl:string,
+public  city:string,
+public  street:string,
+public  number:string
+    ){}
+}
